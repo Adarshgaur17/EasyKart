@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { GrCheckbox, GrEmergency } from "react-icons/gr";
 
 function LoginPage() {
@@ -31,7 +32,12 @@ function LoginPage() {
             Login
           </button>
           <h3 className="mt-4 text-red-500">Lost Your Password ?</h3>
-          <h3 className="text-red-500 ">New User ? SIGN UP </h3>
+          <h3 className="text-red-500 ">
+            New User ?
+            <Link to="/signUpPage/" className="underline underline-offset-2">
+              SIGN UP
+            </Link>
+          </h3>
         </div>
       </div>
     </div>
