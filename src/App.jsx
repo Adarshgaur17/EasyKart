@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import Discription from "./Discription";
 import NotFound from "./NotFound";
 import CartList from "./CartList";
+import LoginPage from "./LoginPage";
 
 function App() {
   const savedDataString = localStorage.getItem("my-cart") || "{}";
@@ -36,7 +37,7 @@ function App() {
           />
           <Route path="*" element={<NotFound />} />
           <Route path="/CartPage/" element={<CartList />} />
-          <Route path="/loginPage/" />
+          <Route path="/loginPage/" element={<LoginPage />} />
         </Routes>
       </div>
 
