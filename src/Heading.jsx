@@ -6,14 +6,15 @@ function Heading({ productCount }) {
   return (
     <div className="py-8 mb-4 bg-white border border-gray-300">
       <div className="flex justify-between max-w-6xl mx-auto">
-        <img
-          className="h-16"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20220213013322"
-        />
+        <Link to="/loginPage/">
+          <img
+            className="h-16"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/905px-Amazon_logo.svg.png?20220213013322"
+          />
+        </Link>
         <div className="flex flex-col items-center ">
           <Link to="/CartPage/">
-            {" "}
-            <HiShoppingBag className="text-6xl text-orange-400" />{" "}
+            <HiShoppingBag className="text-6xl text-orange-400" />
           </Link>
           <span className="-m-8">{productCount}</span>
         </div>
