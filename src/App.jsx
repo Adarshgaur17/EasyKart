@@ -8,6 +8,7 @@ import NotFound from "./NotFound";
 import CartList from "./CartList";
 import LoginPage from "./LoginPage";
 import SignUp from "./SignUp";
+import ForgotPassword from "./ForgotPassword";
 
 function App() {
   const savedDataString = localStorage.getItem("my-cart") || "{}";
@@ -40,6 +41,7 @@ function App() {
           <Route path="/CartPage/" element={<CartList />} />
           <Route path="/loginPage/" element={<LoginPage />} />
           <Route path="/signUpPage/" element={<SignUp />} />
+          <Route path="/forgotPassword/" element={<ForgotPassword />} />
         </Routes>
       </div>
 

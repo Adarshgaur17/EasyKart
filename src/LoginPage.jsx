@@ -31,7 +31,12 @@ function LoginPage() {
           <button className="self-start px-8 py-2 mt-2 text-white bg-red-400 rounded">
             Login
           </button>
-          <h3 className="mt-4 text-red-500">Lost Your Password ?</h3>
+          <Link
+            to="/forgotPassword/"
+            className="text-red-500 underline underline-offset-2"
+          >
+            <h3 className="mt-4 text-red-500">Lost Your Password ?</h3>
+          </Link>
           <h3 className="text-red-500 ">
             New User ?
             <Link to="/signUpPage/" className="underline underline-offset-2">
