@@ -24,13 +24,17 @@ function SignUp() {
             type="text"
             className="mt-2 placeholder-gray-500 border-2 "
           ></input>
+        </div>
+        <div className="flex flex-col mt-4">
           <label className="flex">
             Contact No. <GrEmergency className="mt-1 text-xs text-red-500" />
           </label>
           <input
-            type="number"
+            type="tel"
             className="mt-2 placeholder-gray-500 border-2 "
           ></input>
+        </div>
+        <div className="flex flex-col mt-4">
           <label className="flex">
             Email address
             <GrEmergency className="mt-1 text-xs text-red-500" />
@@ -39,6 +43,8 @@ function SignUp() {
             type="email"
             className="mt-2 placeholder-gray-500 border-2 "
           ></input>
+        </div>
+        <div className="flex flex-col mt-4">
           <label className="flex">
             Set Password <GrEmergency className="mt-1 text-xs text-red-500" />
           </label>
@@ -46,6 +52,8 @@ function SignUp() {
             type="password"
             className="mt-2 placeholder-gray-500 border-2 "
           ></input>
+        </div>
+        <div className="flex flex-col mt-4">
           <label className="flex">
             Confirm Password
             <GrEmergency className="mt-1 text-xs text-red-500" />
@@ -54,17 +62,17 @@ function SignUp() {
             type="password"
             className="mt-2 placeholder-gray-500 border-2 "
           ></input>
-          <button className="self-start px-8 py-2 mt-2 text-white bg-red-400 rounded">
-            SignUp
-          </button>
-
-          <h3 className="text-red-500 ">
-            Already a user ?{" "}
-            <Link to="/loginPage/" className="underline underline-offset-2">
-              LOGIN
-            </Link>
-          </h3>
         </div>
+        <button className="self-start px-8 py-2 mt-2 text-white bg-red-400 rounded">
+          SignUp
+        </button>
+
+        <h3 className="text-red-500 ">
+          Already a user ?
+          <Link to="/loginPage/" className="underline underline-offset-2">
+            LOGIN
+          </Link>
+        </h3>
       </div>
     </div>
   );
