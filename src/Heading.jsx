@@ -12,8 +12,7 @@ function Heading({ productCount }) {
         />
         <div className="flex flex-col items-center ">
           <Link to="/CartPage/">
-            {" "}
-            <HiShoppingBag className="text-6xl text-orange-400" />{" "}
+            <HiShoppingBag className="text-6xl text-orange-400" />
           </Link>
           <span className="-m-8">{productCount}</span>
         </div>
