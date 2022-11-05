@@ -1,31 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CartRow from "./CartRow";
-import { Link } from "react-router-dom";
-import { HiArrowCircleLeft } from "react-icons/hi";
-function CartList({ products, cart }) {
+import Button from "./Button";
+
+function CartList({ products, cart, updateCart }) {
+  const [localCart, setLocalCart] = useState(cart);
+  useEffect(
+    function () {
+      setLocalCart(cart);
+    },
+    [cart]
+  );
+  function handleQuantityChange(productId, newValue) {
+    const newLocalCart = { ...localCart, [productId]: newValue };
+    setLocalCart(newLocalCart);
+  }
+  function handleUpdateCartClick() {
+    updateCart(localCart);
+  }
+  function handleRemove(productId) {
+    const newCart = { ...cart };
+    delete newCart[productId];
+    updateCart(newCart);
+  }
   return (
     <div className="flex flex-col max-w-6xl py-16 mx-auto my-16 bg-white px-9">
-      <Link to="/">
-        <HiArrowCircleLeft className="text-4xl text-gray-600" />
-      </Link>
-      <div className="flex gap-40 mt-4 bg-gray-100 border-2 ">
-        <span className="text-2xl font-bold">Product</span>
-        <span className="text-2xl font-bold">Price</span>
-        <span className="text-2xl font-bold">Quantity</span>
-        <span className="text-2xl font-bold">Subtotal</span>
+      <div className="flex gap-40 mt-4 bg-gray-100 border-2">
+        <span className="text-2xl font-bold ml-28 grow">Product</span>
+        <span className="text-2xl font-bold w-28">Price</span>
+        <span className="w-32 text-2xl font-bold">Quantity</span>
+        <span className="w-20 text-2xl font-bold">Subtotal</span>
       </div>
       {products.map(function (p) {
-        return <CartRow product={p} quantity={cart[p.id]} />;
+        return (
+          <CartRow
+            key={p.id}
+            product={p}
+            quantity={localCart[p.id]}
+            onQuantityChange={handleQuantityChange}
+            onRemove={handleRemove}
+          />
+        );
       })}
 
       <div className="p-4 border-2">
-        <input className="mt-2 font-bold border-2" placeholder="Coupon code" />
-        <button className="px-8 py-1 mt-2 ml-4 text-white bg-red-400 rounded">
-          APPLY COUPON
-        </button>
-        <button className="px-8 py-1 mt-2 ml-4 font-bold text-black bg-red-300 rounded">
-          UPDATE CART
-        </button>
+        <Button onClick={handleUpdateCartClick}>UPDATE CART</Button>
       </div>
     </div>
   );
