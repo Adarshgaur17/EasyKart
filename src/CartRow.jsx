@@ -8,7 +8,7 @@ function CartRow({ product, quantity, onQuantityChange, onRemove }) {
     onRemove(product.id);
   }
   return (
-    <div className="flex flex-row items-center px-4 py-2 border-2">
+    <div className="flex flex-row items-center px-4 py-2 space-x-4 border-2">
       <span>
         <TiDeleteOutline
           onClick={handleCrossClick}
@@ -19,14 +19,18 @@ function CartRow({ product, quantity, onQuantityChange, onRemove }) {
         <img className="object-cover w-full h-full" src={product.thumbnail} />
       </div>
       <h2 className="text-xl font-bold text-red-600 grow">{product.title}</h2>
-      <h4 className="w-20 text-xl font-bold">${product.price}</h4>
-      <input
-        className="box-border w-12 h-8 px-2 text-xl font-bold border-2"
-        type="number"
-        value={quantity}
-        onChange={handleChange}
-      />
-      <h4 className="w-20 text-xl font-bold ">${product.price * quantity}</h4>
+      <h4 className="w-20 text-xl font-bold ">${product.price}.00</h4>
+      <div className="w-32">
+        <input
+          className="box-border w-12 h-8 px-2 text-xl font-bold border-2"
+          type="number"
+          value={quantity}
+          onChange={handleChange}
+        />
+      </div>
+      <h4 className="w-20 text-xl font-bold ">
+        ${product.price * quantity}.00
+      </h4>
     </div>
   );
 }
