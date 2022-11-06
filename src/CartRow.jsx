@@ -1,23 +1,37 @@
 import React from "react";
 import { TiDeleteOutline } from "react-icons/ti";
-function CartRow() {
+function CartRow({ product, quantity, onQuantityChange, onRemove }) {
+  function handleChange(event) {
+    onQuantityChange(product.id, +event.target.value);
+  }
+  function handleCrossClick() {
+    onRemove(product.id);
+  }
   return (
-    <div className="flex items-center gap-20 p-4 border-2">
-      <TiDeleteOutline className="text-4xl text-gray-400 " />
-      <div className="w-20 ">
-        <img
-          className="object-cover w-full h-full"
-          src="https://cdn.discordapp.com/attachments/992343608189526056/1002832090527711283/mug-white-4.jpeg"
+    <div className="flex flex-row items-center px-4 py-2 space-x-4 border-2">
+      <span>
+        <TiDeleteOutline
+          onClick={handleCrossClick}
+          className="text-4xl text-gray-400 cursor-pointer"
+        />
+      </span>
+      <div className="w-20">
+        <img className="object-cover w-full h-full" src={product.thumbnail} />
+      </div>
+      <h2 className="text-xl font-bold text-red-600 grow">{product.title}</h2>
+      <h4 className="w-20 text-xl font-bold ">${product.price}.00</h4>
+      <div className="w-32">
+        <input
+          className="box-border w-12 h-8 px-2 text-xl font-bold border-2"
+          type="number"
+          value={quantity}
+          onChange={handleChange}
         />
       </div>
-      <h2 className="text-xl font-bold text-red-600">
-        black printed coffee mug
-      </h2>
-      <h4 className="text-xl font-bold">Rs.15</h4>
-      <h4 className="box-border w-12 h-8 px-2 text-xl font-bold border-2">2</h4>
-      <h4 className="text-xl font-bold ">Rs.30</h4>
+      <h4 className="w-20 text-xl font-bold ">
+        ${product.price * quantity}.00
+      </h4>
     </div>
   );
 }
 export default CartRow;
-//{thumbnail, title, price, quantity, price, id}

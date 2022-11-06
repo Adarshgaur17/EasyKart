@@ -5,6 +5,7 @@ import ProductListPage from "./ProductListPage";
 import Footer from "./Footer";
 import Discription from "./Discription";
 import NotFound from "./NotFound";
+import CartPage from "./CartPage";
 import CartList from "./CartList";
 import LoginPage from "./LoginPage";
 import SignUp from "./SignUp";
@@ -18,6 +19,9 @@ function App() {
   function handleAddToCart(productId, count) {
     const oldCount = cart[productId] || 0;
     const newCart = { ...cart, [productId]: oldCount + count };
+    updateCart(newCart);
+  }
+  function updateCart(newCart) {
     setCart(newCart);
     const cartString = JSON.stringify(newCart);
     localStorage.setItem("my-cart", cartString);
@@ -38,7 +42,11 @@ function App() {
             element={<Discription onAddToCart={handleAddToCart} />}
           />
           <Route path="*" element={<NotFound />} />
-          <Route path="/CartPage/" element={<CartList />} />
+          <Route
+            path="/CartPage/"
+            element={<CartPage cart={cart} updateCart={updateCart} />}
+          />
+          <Route path="/CartPage/" element={<Cartpage />} />
           <Route path="/loginPage/" element={<LoginPage />} />
           <Route path="/signUpPage/" element={<SignUp />} />
           <Route path="/forgotPassword/" element={<ForgotPassword />} />

@@ -47,7 +47,7 @@ function ProductListPage() {
     return <Loading />;
   }
   return (
-    <div className="max-w-6xl py-12 mx-auto my-16 bg-white  px-9">
+    <div className="max-w-6xl py-12 mx-auto my-16 bg-white px-9">
       <div className="justify-between sm:flex">
         <input
           className="font-bold border-2 rounded-md"
@@ -69,7 +69,6 @@ function ProductListPage() {
       {data.length > 0 && <ProductList products={data} />}
       {data.length == 0 && (
         <NoMatching>
-          {" "}
           No Matching Product Found, Try Searching Something Else.
         </NoMatching>
       )}
