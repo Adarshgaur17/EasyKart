@@ -6,7 +6,6 @@ import Footer from "./Footer";
 import Discription from "./Discription";
 import NotFound from "./NotFound";
 import CartPage from "./CartPage";
-import CartList from "./CartList";
 import LoginPage from "./LoginPage";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
@@ -46,7 +45,7 @@ function App() {
             path="/CartPage/"
             element={<CartPage cart={cart} updateCart={updateCart} />}
           />
-          <Route path="/CartPage/" element={<Cartpage />} />
+          <Route path="/CartPage/" element={<CartPage />} />
           <Route path="/loginPage/" element={<LoginPage />} />
           <Route path="/signUpPage/" element={<SignUp />} />
           <Route path="/forgotPassword/" element={<ForgotPassword />} />
